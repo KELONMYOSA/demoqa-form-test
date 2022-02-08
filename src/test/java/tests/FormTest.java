@@ -1,7 +1,7 @@
 package tests;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.commands.UploadFileFromClasspath;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -34,6 +34,7 @@ public class FormTest {
 
         $("#subjectsInput").setValue("Maths").pressEnter();
         $(byText("Sports")).click();
+        $("#uploadPicture").uploadFromClasspath("test-pic.jpg");
         $("#currentAddress").setValue("Ulica, dom 1");
 
         $("#state").click();
@@ -53,6 +54,7 @@ public class FormTest {
                 text("01 January,2000"),
                 text("Maths"),
                 text("Sports"),
+                text("test-pic.jpg"),
                 text("Ulica, dom 1"),
                 text("NCR Delhi")
         );
